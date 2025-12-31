@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #fbfbfd;
+            --text-primary: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --text-tertiary: #86868b;
+            --border: #d2d2d7;
+            --progress-bg: #e8e8ed;
+            --icon-bg-start: #1d1d1f;
+            --icon-bg-end: #424245;
+            --icon-fill: #fbfbfd;
+            --accent: #0071e3;
+            --accent-hover: rgba(0, 113, 227, 0.1);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #000000;
+                --text-primary: #f5f5f7;
+                --text-secondary: #a1a1a6;
+                --text-tertiary: #6e6e73;
+                --border: #424245;
+                --progress-bg: #333336;
+                --icon-bg-start: #f5f5f7;
+                --icon-bg-end: #a1a1a6;
+                --icon-fill: #000000;
+                --accent: #2997ff;
+                --accent-hover: rgba(41, 151, 255, 0.15);
+            }
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--bg);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 680px;
+        }
+
+        .icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 40px;
+            background: linear-gradient(180deg, var(--icon-bg-start) 0%, var(--icon-bg-end) 100%);
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .icon svg {
+            width: 44px;
+            height: 44px;
+            fill: var(--icon-fill);
+        }
+
+        .headline {
+            font-size: 56px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.07;
+            background: linear-gradient(90deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+
+        .subheadline {
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+            margin-bottom: 12px;
+        }
+
+        .description {
+            font-size: 19px;
+            color: var(--text-secondary);
+            line-height: 1.47;
+            font-weight: 400;
+            max-width: 500px;
+            margin: 0 auto 40px;
+        }
+
+        .progress-container {
+            margin: 40px auto;
+            max-width: 240px;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: var(--progress-bg);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent), #40a9ff);
+            border-radius: 2px;
+            animation: progressAnim 2.5s ease-out forwards;
+        }
+
+        @keyframes progressAnim {
+            0% { width: 0%; }
+            100% { width: 67%; }
+        }
+
+        .status {
+            margin-top: 12px;
+            font-size: 14px;
+            color: var(--text-tertiary);
+        }
+
+        .cta {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            font-size: 17px;
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 980px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta:hover {
+            background: var(--accent-hover);
+        }
+
+        .footer {
+            margin-top: 80px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer p {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        .legal {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 600px) {
+            .headline {
+                font-size: 40px;
+            }
+            .subheadline {
+                font-size: 22px;
+            }
+            .description {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+        </div>
+
+        <h1 class="headline">Something big<br>is coming.</h1>
+        <p class="subheadline">And it's going to change everything.*</p>
+        <p class="description">
+            I'm crafting an experience so revolutionary, so intuitive, 
+            you'll wonder how you ever lived without it.
+        </p>
+
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <p class="status">Reticulating splines...</p>
+        </div>
+
+        <a class="cta">Get notified ›</a>
+
+        <div class="footer">
+            <p>Designed in Romania. Built when I get around to it.</p>
+            <p class="legal">*It will not actually change everything. May not change anything. Results may vary. 
+            This website does not yet exist and I cannot guarantee it ever will.</p>
+        </div>
+    </div>
+</body>
+</html>
